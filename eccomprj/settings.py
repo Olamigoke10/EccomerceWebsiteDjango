@@ -146,3 +146,5 @@ JAZZMIN_SETTINGS = {
     # "site_logo"
     "copyright": "goke-shop.com"
 }
+
+AUTH_USER_MODEL = "userauths.User"
