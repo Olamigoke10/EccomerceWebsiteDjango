@@ -709,3 +709,269 @@ textarea {
     height: 50px;
     border-radius: 50%;
     background: rgba(59, 93, 80, 0.2); }
+
+
+    /* SignUp Page */
+    #auth-form-container {
+      --primary-color: #4EA685;
+      --secondary-color: #57B894;
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #efefef;
+      --gray-2: #757575;
+      --facebook-color: #4267B2;
+      --google-color: #DB4437;
+      --twitter-color: #1DA1F2;
+      --insta-color: #E1306C;
+  }
+  
+  #auth-form-container * {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  #auth-form-container html,
+  #auth-form-container body {
+      height: 100vh;
+      overflow: hidden;
+  }
+  
+  #auth-form-container .container {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+  }
+  
+  #auth-form-container .row {
+      display: flex;
+      flex-wrap: wrap;
+      height: 100vh;
+  }
+  
+  #auth-form-container .col {
+      width: 50%;
+  }
+  
+  #auth-form-container .align-items-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+  
+  #auth-form-container .form-wrapper {
+      width: 100%;
+      max-width: 28rem;
+  }
+  
+  #auth-form-container .form {
+      padding: 1rem;
+      background-color: var(--white);
+      border-radius: 1.5rem;
+      width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      transform: scale(0);
+      transition: .5s ease-in-out;
+      transition-delay: 1s;
+  }
+  
+  #auth-form-container .input-group {
+      position: relative;
+      width: 100%;
+      margin: 1rem 0;
+  }
+  
+  #auth-form-container .input-group i {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      color: var(--gray-2);
+  }
+  
+  #auth-form-container .input-group input {
+      width: 100%;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      background-color: var(--gray);
+      border-radius: .5rem;
+      border: 0.125rem solid var(--white);
+      outline: none;
+  }
+  
+  #auth-form-container .input-group input:focus {
+      border: 0.125rem solid var(--primary-color);
+  }
+  
+  #auth-form-container .form button {
+      cursor: pointer;
+      width: 100%;
+      padding: .6rem 0;
+      border-radius: .5rem;
+      border: none;
+      background-color: var(--primary-color);
+      color: var(--white);
+      font-size: 1.2rem;
+      outline: none;
+  }
+  
+  #auth-form-container .form p {
+      margin: 1rem 0;
+      font-size: .7rem;
+  }
+  
+  #auth-form-container .flex-col {
+      flex-direction: column;
+  }
+  
+  #auth-form-container .social-list {
+      margin: 2rem 0;
+      padding: 1rem;
+      border-radius: 1.5rem;
+      width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      transform: scale(0);
+      transition: .5s ease-in-out;
+      transition-delay: 1.2s;
+  }
+  
+  #auth-form-container .social-list>div {
+      color: var(--white);
+      margin: 0 .5rem;
+      padding: .7rem;
+      cursor: pointer;
+      border-radius: .5rem;
+      cursor: pointer;
+      transform: scale(0);
+      transition: .5s ease-in-out;
+  }
+  
+  #auth-form-container .social-list>div:nth-child(1) {
+      transition-delay: 1.4s;
+  }
+  
+  #auth-form-container .social-list>div:nth-child(2) {
+      transition-delay: 1.6s;
+  }
+  
+  #auth-form-container .social-list>div:nth-child(3) {
+      transition-delay: 1.8s;
+  }
+  
+  #auth-form-container .social-list>div:nth-child(4) {
+      transition-delay: 2s;
+  }
+  
+  #auth-form-container .social-list>div>i {
+      font-size: 1.5rem;
+      transition: .4s ease-in-out;
+  }
+  
+  #auth-form-container .social-list>div:hover i {
+      transform: scale(1.5);
+  }
+  
+  #auth-form-container .facebook-bg {
+      background-color: var(--facebook-color);
+  }
+  
+  #auth-form-container .google-bg {
+      background-color: var(--google-color);
+  }
+  
+  #auth-form-container .twitter-bg {
+      background-color: var(--twitter-color);
+  }
+  
+  #auth-form-container .insta-bg {
+      background-color: var(--insta-color);
+  }
+  
+  #auth-form-container .pointer {
+      cursor: pointer;
+  }
+  
+  #auth-form-container .container.sign-in .form.sign-in,
+  #auth-form-container .container.sign-in .social-list.sign-in,
+  #auth-form-container .container.sign-in .social-list.sign-in>div,
+  #auth-form-container .container.sign-up .form.sign-up,
+  #auth-form-container .container.sign-up .social-list.sign-up,
+  #auth-form-container .container.sign-up .social-list.sign-up>div {
+      transform: scale(1);
+  }
+  
+  #auth-form-container .content-row {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 6;
+      width: 100%;
+  }
+  
+  #auth-form-container .text {
+      margin: 4rem;
+      color: var(--white);
+  }
+  
+  #auth-form-container .text h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 2rem 0;
+      transition: 1s ease-in-out;
+  }
+  
+  #auth-form-container .text p {
+      font-weight: 600;
+      transition: 1s ease-in-out;
+      transition-delay: .2s;
+  }
+  
+  #auth-form-container .img img {
+      width: 500px;
+      transition: 1.2s ease-in-out;
+  }
+  
+  #auth-form-container .img.sign-in img {
+      transition-delay: 1.2s;
+  }
+  
+  #auth-form-container .img.sign-up img {
+      transition-delay: 0;
+  }
+  
+  #auth-form-container .container.sign-up .text.sign-in h2,
+  #auth-form-container .container.sign-up .text.sign-in p,
+  #auth-form-container .container.sign-up .img.sign-in img,
+  #auth-form-container .container.sign-in .text.sign-up h2,
+  #auth-form-container .container.sign-in .text.sign-up p,
+  #auth-form-container .container.sign-in .img.sign-up img {
+      transform: translateX(200%);
+      opacity: 0;
+  }
+  
+  #auth-form-container .container.sign-up .text.sign-up h2,
+  #auth-form-container .container.sign-up .text.sign-up p,
+  #auth-form-container .container.sign-up .img.sign-up img,
+  #auth-form-container .container.sign-in .text.sign-in h2,
+  #auth-form-container .container.sign-in .text.sign-in p,
+  #auth-form-container .container.sign-in .img.sign-in img {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+      #auth-form-container .container,
+      #auth-form-container .row {
+          flex-direction: column-reverse;
+      }
+  
+      #auth-form-container .col {
+          width: 100%;
+          height: 100%;
+      }
+  }
+  
