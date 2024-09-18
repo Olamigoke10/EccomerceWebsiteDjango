@@ -1,54 +1,143 @@
 {% extends 'partials/base.html' %}
 {% load static %}
 {% block content %}
-<div class="auth-container">
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
-            </form>
-        </div>
 
-        <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
-                </div>
-            </div>
-        </div>
+<div class="wrapper_container">
+  <div class="wrapper">
+    <!-- Toggle Buttons -->
+    <div class="toggle-buttons">
+      <button id="show-register" class="active">Sign Up</button>
+      <button id="show-login">Login</button>
     </div>
+
+    <!-- Registration Form -->
+    <div id="register-form" class="form-box">
+      <h2>Registration</h2>
+      <form action="#" method="post">
+        <!-- <div class="input-box">
+          <input type="text" placeholder="Enter your name" required>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="Enter your email" required>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Create password" required>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Confirm password" required>
+        </div>
+        <div class="policy">
+          <input type="checkbox" required>
+          <h3>I accept all terms & conditions</h3>
+        </div>
+        <div class="input-box button">
+          <input type="submit" value="Register Now">
+        </div> -->
+        {{form }}
+        <div class="text">
+          <h3>Already have an account? <a href="#" id="switch-to-login">Login now</a></h3>
+        </div>
+      </form>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form" class="form-box hidden">
+      <h2>Login</h2>
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Enter your email" required>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Enter your password" required>
+        </div>
+        <div class="input-box button">
+          <input type="submit" value="Login Now">
+        </div>
+        <div class="text">
+          <h3>Don't have an account? <a href="#" id="switch-to-register">Sign Up now</a></h3>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
+<!-- JavaScript for toggling forms -->
+<script>
+  // Elements
+  const registerForm = document.getElementById('register-form');
+  const loginForm = document.getElementById('login-form');
+  const switchToLogin = document.getElementById('switch-to-login');
+  const switchToRegister = document.getElementById('switch-to-register');
+  const showRegisterBtn = document.getElementById('show-register');
+  const showLoginBtn = document.getElementById('show-login');
+
+  // Function to show login form and hide register form
+  const showLogin = () => {
+    loginForm.classList.remove('hidden');
+    registerForm.classList.add('hidden');
+    showLoginBtn.classList.add('active');
+    showRegisterBtn.classList.remove('active');
+  };
+
+  // Function to show register form and hide login form
+  const showRegister = () => {
+    registerForm.classList.remove('hidden');
+    loginForm.classList.add('hidden');
+    showRegisterBtn.classList.add('active');
+    showLoginBtn.classList.remove('active');
+  };
+
+  // Event Listeners
+  switchToLogin.addEventListener('click', function (e) {
+    e.preventDefault();
+    showLogin();
+  });
+
+  switchToRegister.addEventListener('click', function (e) {
+    e.preventDefault();
+    showRegister();
+  });
+
+  showLoginBtn.addEventListener('click', showLogin);
+  showRegisterBtn.addEventListener('click', showRegister);
+</script>
+
+<style>
+  .toggle-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .toggle-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  .toggle-buttons button.active {
+    background-color: #3b5d50;
+    color: white;
+  }
+
+  .form-box {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, height 0.5s ease;
+  }
+
+  .form-box:not(.hidden) {
+    opacity: 1;
+    height: auto;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
 {% endblock content %}
