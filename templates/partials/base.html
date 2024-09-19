@@ -13,6 +13,7 @@
 		<!-- Bootstrap CSS -->
 		<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 		<link href="{% static 'assets/css/tiny-slider.css' %}" rel="stylesheet">
 		<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 		<link href="{% static 'assets/css/register.css' %}" rel="stylesheet">
@@ -42,6 +43,7 @@
 						<li><a class="nav-link" href="services.html">Services</a></li>
 						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li><a class="nav-link logout" href="{% url 'userauths:logout' %}"><i class='bx bxs-log-out-circle'></i></a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
