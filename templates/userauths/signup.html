@@ -18,8 +18,13 @@
         {% endfor %}
         </p>
     </div>
-{% endif %}
+    {% endif %}
 
+    {% if login_error %}
+    <div class="alert alert-danger">
+      <p>Invalid email or password. Please try again.</p>
+    </div>
+    {% endif %}
 
     <!-- Registration Form -->
     <div id="register-form" class="form-box">
@@ -27,37 +32,20 @@
       <form action="{% url 'userauths:signup' %}" method="post">
         {% csrf_token %}
         <div class="input-box">
-            {{form.username}}
-          </div>
-        <div class="input-box">
-            {{form.email}}
-          </div>
-        <div class="input-box">
-            {{form.password1}}
-          </div>
-        <div class="input-box">
-            {{form.password2}}
-          </div>
-        <!-- <div class="input-box">
-          <input type="text" placeholder="Enter your name" required>
+          {{ form.username }}
         </div>
         <div class="input-box">
-          <input type="text" placeholder="Enter your email" required>
+          {{ form.email }}
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Create password" required>
+          {{ form.password1 }}
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Confirm password" required>
+          {{ form.password2 }}
         </div>
-        <div class="policy">
-          <input type="checkbox" required>
-          <h3>I accept all terms & conditions</h3>
+        <div class="input-box button">
+          <input type="submit" value="Register Now">
         </div>
-         -->
-         <div class="input-box button">
-            <input type="submit" value="Register Now">
-          </div>
         <div class="text">
           <h3>Already have an account? <a href="#" id="switch-to-login">Login now</a></h3>
         </div>
@@ -70,17 +58,14 @@
       <form action="{% url 'userauths:signin' %}" method="post">
         {% csrf_token %}
         <div class="input-box">
-            <input type="text" placeholder="Enter your email" required>
-          </div>
-
-          <div class="input-box">
-            <input type="password" placeholder="Your password" required>
-          </div>
-
+          <input type="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password" placeholder="Your password" required>
+        </div>
         <div class="input-box button">
-            <input type="submit" value="Login Now">
-          </div>
-
+          <input type="submit" value="Login Now">
+        </div>
         <div class="text">
           <h3>Don't have an account? <a href="#" id="switch-to-register">Sign Up now</a></h3>
         </div>
