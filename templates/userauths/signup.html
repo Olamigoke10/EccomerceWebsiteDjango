@@ -4,11 +4,7 @@
 
 <div class="wrapper_container">
   <div class="wrapper">
-    <!-- Toggle Buttons -->
-    <div class="toggle-buttons">
-      <button id="show-register" class="active">Sign Up</button>
-      <button id="show-login">Login</button>
-    </div>
+    <h2>Sign Up</h2>
     
     {% if form.errors %}
     <div class="alert alert-danger">
@@ -19,138 +15,29 @@
         </p>
     </div>
     {% endif %}
-
-    {% if login_error %}
-    <div class="alert alert-danger">
-      <p>Invalid email or password. Please try again.</p>
-    </div>
-    {% endif %}
-
-    <!-- Registration Form -->
-    <div id="register-form" class="form-box">
-      <h2>Registration</h2>
-      <form action="{% url 'userauths:signup' %}" method="post">
-        {% csrf_token %}
-        <div class="input-box">
-          {{ form.username }}
-        </div>
-        <div class="input-box">
-          {{ form.email }}
-        </div>
-        <div class="input-box">
-          {{ form.password1 }}
-        </div>
-        <div class="input-box">
-          {{ form.password2 }}
-        </div>
-        <div class="input-box button">
-          <input type="submit" value="Register Now">
-        </div>
-        <div class="text">
-          <h3>Already have an account? <a href="#" id="switch-to-login">Login now</a></h3>
-        </div>
-      </form>
-    </div>
-
-    <!-- Login Form -->
-    <div id="login-form" class="form-box hidden">
-      <h2>Login</h2>
-      <form action="{% url 'userauths:signin' %}" method="post">
-        {% csrf_token %}
-        <div class="input-box">
-          <input type="email" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="input-box">
-          <input type="password" name="password" placeholder="Your password" required>
-        </div>
-        <div class="input-box button">
-          <input type="submit" value="Login Now">
-        </div>
-        <div class="text">
-          <h3>Don't have an account? <a href="#" id="switch-to-register">Sign Up now</a></h3>
-        </div>
-      </form>
-    </div>
+    
+    <form action="{% url 'userauths:signup' %}" method="post">
+      {% csrf_token %}
+      <div class="input-box">
+        {{ form.username }}
+      </div>
+      <div class="input-box">
+        {{ form.email }}
+      </div>
+      <div class="input-box">
+        {{ form.password1 }}
+      </div>
+      <div class="input-box">
+        {{ form.password2 }}
+      </div>
+      <div class="input-box button">
+        <input type="submit" value="Register Now">
+      </div>
+      <div class="text">
+        <h3>Already have an account? <a href="{% url 'userauths:signin' %}">Login now</a></h3>
+      </div>
+    </form>
   </div>
 </div>
-
-<!-- JavaScript for toggling forms -->
-<script>
-  // Elements
-  const registerForm = document.getElementById('register-form');
-  const loginForm = document.getElementById('login-form');
-  const switchToLogin = document.getElementById('switch-to-login');
-  const switchToRegister = document.getElementById('switch-to-register');
-  const showRegisterBtn = document.getElementById('show-register');
-  const showLoginBtn = document.getElementById('show-login');
-
-  // Function to show login form and hide register form
-  const showLogin = () => {
-    loginForm.classList.remove('hidden');
-    registerForm.classList.add('hidden');
-    showLoginBtn.classList.add('active');
-    showRegisterBtn.classList.remove('active');
-  };
-
-  // Function to show register form and hide login form
-  const showRegister = () => {
-    registerForm.classList.remove('hidden');
-    loginForm.classList.add('hidden');
-    showRegisterBtn.classList.add('active');
-    showLoginBtn.classList.remove('active');
-  };
-
-  // Event Listeners
-  switchToLogin.addEventListener('click', function (e) {
-    e.preventDefault();
-    showLogin();
-  });
-
-  switchToRegister.addEventListener('click', function (e) {
-    e.preventDefault();
-    showRegister();
-  });
-
-  showLoginBtn.addEventListener('click', showLogin);
-  showRegisterBtn.addEventListener('click', showRegister);
-</script>
-
-<style>
-  .toggle-buttons {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .toggle-buttons button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    background-color: #f0f0f0;
-    border: none;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-
-  .toggle-buttons button.active {
-    background-color: #3b5d50;
-    color: white;
-  }
-
-  .form-box {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: opacity 0.5s ease, height 0.5s ease;
-  }
-
-  .form-box:not(.hidden) {
-    opacity: 1;
-    height: auto;
-  }
-
-  .hidden {
-    display: none;
-  }
-</style>
 
 {% endblock content %}

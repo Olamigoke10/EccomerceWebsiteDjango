@@ -1,0 +1,33 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="wrapper_container">
+  <div class="wrapper">
+    <h2>Login</h2>
+
+    {% if login_error %}
+    <div class="alert alert-danger">
+      <p>Invalid email or password. Please try again.</p>
+    </div>
+    {% endif %}
+    
+    <form action="{% url 'userauths:signin' %}" method="post">
+      {% csrf_token %}
+      <div class="input-box">
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-box">
+        <input type="password" name="password" placeholder="Your password" required>
+      </div>
+      <div class="input-box button">
+        <input type="submit" value="Login Now">
+      </div>
+      <div class="text">
+        <h3>Don't have an account? <a href="{% url 'userauths:signup' %}">Sign Up now</a></h3>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
